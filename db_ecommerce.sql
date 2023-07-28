@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 17, 2022 at 03:44 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 28, 2023 lúc 02:37 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_ecommerce`
+-- Cơ sở dữ liệu: `db_ecommerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messagein`
+-- Cấu trúc bảng cho bảng `messagein`
 --
 
 CREATE TABLE `messagein` (
@@ -40,10 +40,10 @@ CREATE TABLE `messagein` (
   `MessagePDU` text DEFAULT NULL,
   `Gateway` varchar(80) DEFAULT NULL,
   `UserId` varchar(80) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `messagein`
+-- Đang đổ dữ liệu cho bảng `messagein`
 --
 
 INSERT INTO `messagein` (`Id`, `SendTime`, `ReceiveTime`, `MessageFrom`, `MessageTo`, `SMSC`, `MessageText`, `MessageType`, `MessageParts`, `MessagePDU`, `Gateway`, `UserId`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `messagein` (`Id`, `SendTime`, `ReceiveTime`, `MessageFrom`, `Messag
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messagelog`
+-- Cấu trúc bảng cho bảng `messagelog`
 --
 
 CREATE TABLE `messagelog` (
@@ -79,10 +79,10 @@ CREATE TABLE `messagelog` (
   `Connector` varchar(80) DEFAULT NULL,
   `UserId` varchar(80) DEFAULT NULL,
   `UserInfo` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `messagelog`
+-- Đang đổ dữ liệu cho bảng `messagelog`
 --
 
 INSERT INTO `messagelog` (`Id`, `SendTime`, `ReceiveTime`, `StatusCode`, `StatusText`, `MessageTo`, `MessageFrom`, `MessageText`, `MessageType`, `MessageId`, `ErrorCode`, `ErrorText`, `Gateway`, `MessageParts`, `MessagePDU`, `Connector`, `UserId`, `UserInfo`) VALUES
@@ -117,7 +117,7 @@ INSERT INTO `messagelog` (`Id`, `SendTime`, `ReceiveTime`, `StatusCode`, `Status
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messageout`
+-- Cấu trúc bảng cho bảng `messageout`
 --
 
 CREATE TABLE `messageout` (
@@ -134,12 +134,12 @@ CREATE TABLE `messageout` (
   `ValidityPeriod` int(11) DEFAULT NULL,
   `IsSent` tinyint(1) NOT NULL DEFAULT 0,
   `IsRead` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblautonumber`
+-- Cấu trúc bảng cho bảng `tblautonumber`
 --
 
 CREATE TABLE `tblautonumber` (
@@ -149,10 +149,10 @@ CREATE TABLE `tblautonumber` (
   `AUTOEND` int(11) NOT NULL,
   `AUTOKEY` varchar(12) NOT NULL,
   `AUTONUM` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblautonumber`
+-- Đang đổ dữ liệu cho bảng `tblautonumber`
 --
 
 INSERT INTO `tblautonumber` (`ID`, `AUTOSTART`, `AUTOINC`, `AUTOEND`, `AUTOKEY`, `AUTONUM`) VALUES
@@ -162,17 +162,17 @@ INSERT INTO `tblautonumber` (`ID`, `AUTOSTART`, `AUTOINC`, `AUTOEND`, `AUTOKEY`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcategory`
+-- Cấu trúc bảng cho bảng `tblcategory`
 --
 
 CREATE TABLE `tblcategory` (
   `CATEGID` int(11) NOT NULL,
   `CATEGORIES` varchar(255) NOT NULL,
   `USERID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblcategory`
+-- Đang đổ dữ liệu cho bảng `tblcategory`
 --
 
 INSERT INTO `tblcategory` (`CATEGID`, `CATEGORIES`, `USERID`) VALUES
@@ -190,7 +190,7 @@ INSERT INTO `tblcategory` (`CATEGID`, `CATEGORIES`, `USERID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcustomer`
+-- Cấu trúc bảng cho bảng `tblcustomer`
 --
 
 CREATE TABLE `tblcustomer` (
@@ -214,10 +214,10 @@ CREATE TABLE `tblcustomer` (
   `CUSPHOTO` varchar(255) NOT NULL,
   `TERMS` tinyint(4) NOT NULL,
   `DATEJOIN` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblcustomer`
+-- Đang đổ dữ liệu cho bảng `tblcustomer`
 --
 
 INSERT INTO `tblcustomer` (`CUSTOMERID`, `FNAME`, `LNAME`, `MNAME`, `CUSHOMENUM`, `STREETADD`, `BRGYADD`, `CITYADD`, `PROVINCE`, `COUNTRY`, `DBIRTH`, `GENDER`, `PHONE`, `EMAILADD`, `ZIPCODE`, `CUSUNAME`, `CUSPASS`, `CUSPHOTO`, `TERMS`, `DATEJOIN`) VALUES
@@ -237,7 +237,7 @@ INSERT INTO `tblcustomer` (`CUSTOMERID`, `FNAME`, `LNAME`, `MNAME`, `CUSHOMENUM`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblorder`
+-- Cấu trúc bảng cho bảng `tblorder`
 --
 
 CREATE TABLE `tblorder` (
@@ -247,10 +247,10 @@ CREATE TABLE `tblorder` (
   `ORDEREDPRICE` double NOT NULL,
   `ORDEREDNUM` int(11) NOT NULL,
   `USERID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblorder`
+-- Đang đổ dữ liệu cho bảng `tblorder`
 --
 
 INSERT INTO `tblorder` (`ORDERID`, `PROID`, `ORDEREDQTY`, `ORDEREDPRICE`, `ORDEREDNUM`, `USERID`) VALUES
@@ -266,7 +266,7 @@ INSERT INTO `tblorder` (`ORDERID`, `PROID`, `ORDEREDQTY`, `ORDEREDPRICE`, `ORDER
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblproduct`
+-- Cấu trúc bảng cho bảng `tblproduct`
 --
 
 CREATE TABLE `tblproduct` (
@@ -281,10 +281,10 @@ CREATE TABLE `tblproduct` (
   `PROSTATS` varchar(30) DEFAULT NULL,
   `OWNERNAME` varchar(90) NOT NULL,
   `OWNERPHONE` varchar(90) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblproduct`
+-- Đang đổ dữ liệu cho bảng `tblproduct`
 --
 
 INSERT INTO `tblproduct` (`PROID`, `PRODESC`, `INGREDIENTS`, `PROQTY`, `ORIGINALPRICE`, `PROPRICE`, `CATEGID`, `IMAGES`, `PROSTATS`, `OWNERNAME`, `OWNERPHONE`) VALUES
@@ -299,7 +299,7 @@ INSERT INTO `tblproduct` (`PROID`, `PRODESC`, `INGREDIENTS`, `PROQTY`, `ORIGINAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblpromopro`
+-- Cấu trúc bảng cho bảng `tblpromopro`
 --
 
 CREATE TABLE `tblpromopro` (
@@ -309,10 +309,10 @@ CREATE TABLE `tblpromopro` (
   `PRODISPRICE` double NOT NULL,
   `PROBANNER` tinyint(4) NOT NULL,
   `PRONEW` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblpromopro`
+-- Đang đổ dữ liệu cho bảng `tblpromopro`
 --
 
 INSERT INTO `tblpromopro` (`PROMOID`, `PROID`, `PRODISCOUNT`, `PRODISPRICE`, `PROBANNER`, `PRONEW`) VALUES
@@ -327,7 +327,7 @@ INSERT INTO `tblpromopro` (`PROMOID`, `PROID`, `PRODISCOUNT`, `PRODISPRICE`, `PR
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblsetting`
+-- Cấu trúc bảng cho bảng `tblsetting`
 --
 
 CREATE TABLE `tblsetting` (
@@ -335,10 +335,10 @@ CREATE TABLE `tblsetting` (
   `PLACE` text NOT NULL,
   `BRGY` varchar(90) NOT NULL,
   `DELPRICE` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblsetting`
+-- Đang đổ dữ liệu cho bảng `tblsetting`
 --
 
 INSERT INTO `tblsetting` (`SETTINGID`, `PLACE`, `BRGY`, `DELPRICE`) VALUES
@@ -348,7 +348,7 @@ INSERT INTO `tblsetting` (`SETTINGID`, `PLACE`, `BRGY`, `DELPRICE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblstockin`
+-- Cấu trúc bảng cho bảng `tblstockin`
 --
 
 CREATE TABLE `tblstockin` (
@@ -358,12 +358,12 @@ CREATE TABLE `tblstockin` (
   `STOCKQTY` int(11) DEFAULT NULL,
   `STOCKPRICE` double DEFAULT NULL,
   `USERID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblsummary`
+-- Cấu trúc bảng cho bảng `tblsummary`
 --
 
 CREATE TABLE `tblsummary` (
@@ -379,10 +379,10 @@ CREATE TABLE `tblsummary` (
   `CLAIMEDADTE` datetime NOT NULL,
   `HVIEW` tinyint(4) NOT NULL,
   `USERID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblsummary`
+-- Đang đổ dữ liệu cho bảng `tblsummary`
 --
 
 INSERT INTO `tblsummary` (`SUMMARYID`, `ORDEREDDATE`, `CUSTOMERID`, `ORDEREDNUM`, `DELFEE`, `PAYMENT`, `PAYMENTMETHOD`, `ORDEREDSTATS`, `ORDEREDREMARKS`, `CLAIMEDADTE`, `HVIEW`, `USERID`) VALUES
@@ -395,7 +395,7 @@ INSERT INTO `tblsummary` (`SUMMARYID`, `ORDEREDDATE`, `CUSTOMERID`, `ORDEREDNUM`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbluseraccount`
+-- Cấu trúc bảng cho bảng `tbluseraccount`
 --
 
 CREATE TABLE `tbluseraccount` (
@@ -405,21 +405,19 @@ CREATE TABLE `tbluseraccount` (
   `U_PASS` varchar(122) NOT NULL,
   `U_ROLE` varchar(30) NOT NULL,
   `USERIMAGE` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbluseraccount`
+-- Đang đổ dữ liệu cho bảng `tbluseraccount`
 --
 
 INSERT INTO `tbluseraccount` (`USERID`, `U_NAME`, `U_USERNAME`, `U_PASS`, `U_ROLE`, `USERIMAGE`) VALUES
-(124, 'Brain deo', 'kenjie', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Staff', 'photos/COC-war-base-design.jpg'),
-(126, 'Nowdemy', 'Nowdemy', '301b80208fd83410bb45cb2855954ae0299d3038', 'Administrator', 'photos/10329236_874204835938922_6636897990257224477_n.jpg'),
-(127, 'Nowdemy Manager', 'Manager', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Encoder', '');
+(129, 'NPIF', 'NPIF', '8dd0d3251d7992a0bd95e68c528b3369153175bd', 'Administrator', 'photos/4564645645646.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblwishlist`
+-- Cấu trúc bảng cho bảng `tblwishlist`
 --
 
 CREATE TABLE `tblwishlist` (
@@ -428,10 +426,10 @@ CREATE TABLE `tblwishlist` (
   `PROID` int(11) NOT NULL,
   `WISHDATE` date NOT NULL,
   `WISHSTATS` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tblwishlist`
+-- Đang đổ dữ liệu cho bảng `tblwishlist`
 --
 
 INSERT INTO `tblwishlist` (`id`, `CUSID`, `PROID`, `WISHDATE`, `WISHSTATS`) VALUES
@@ -440,49 +438,49 @@ INSERT INTO `tblwishlist` (`id`, `CUSID`, `PROID`, `WISHDATE`, `WISHSTATS`) VALU
 (4, 12, 201742, '2022-08-17', '0');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `messagein`
+-- Chỉ mục cho bảng `messagein`
 --
 ALTER TABLE `messagein`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `messagelog`
+-- Chỉ mục cho bảng `messagelog`
 --
 ALTER TABLE `messagelog`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IDX_MessageId` (`MessageId`,`SendTime`);
 
 --
--- Indexes for table `messageout`
+-- Chỉ mục cho bảng `messageout`
 --
 ALTER TABLE `messageout`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IDX_IsRead` (`IsRead`);
 
 --
--- Indexes for table `tblautonumber`
+-- Chỉ mục cho bảng `tblautonumber`
 --
 ALTER TABLE `tblautonumber`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `tblcategory`
+-- Chỉ mục cho bảng `tblcategory`
 --
 ALTER TABLE `tblcategory`
   ADD PRIMARY KEY (`CATEGID`);
 
 --
--- Indexes for table `tblcustomer`
+-- Chỉ mục cho bảng `tblcustomer`
 --
 ALTER TABLE `tblcustomer`
   ADD PRIMARY KEY (`CUSTOMERID`);
 
 --
--- Indexes for table `tblorder`
+-- Chỉ mục cho bảng `tblorder`
 --
 ALTER TABLE `tblorder`
   ADD PRIMARY KEY (`ORDERID`),
@@ -491,27 +489,27 @@ ALTER TABLE `tblorder`
   ADD KEY `ORDEREDNUM` (`ORDEREDNUM`);
 
 --
--- Indexes for table `tblproduct`
+-- Chỉ mục cho bảng `tblproduct`
 --
 ALTER TABLE `tblproduct`
   ADD PRIMARY KEY (`PROID`),
   ADD KEY `CATEGID` (`CATEGID`);
 
 --
--- Indexes for table `tblpromopro`
+-- Chỉ mục cho bảng `tblpromopro`
 --
 ALTER TABLE `tblpromopro`
   ADD PRIMARY KEY (`PROMOID`),
   ADD UNIQUE KEY `PROID` (`PROID`);
 
 --
--- Indexes for table `tblsetting`
+-- Chỉ mục cho bảng `tblsetting`
 --
 ALTER TABLE `tblsetting`
   ADD PRIMARY KEY (`SETTINGID`);
 
 --
--- Indexes for table `tblstockin`
+-- Chỉ mục cho bảng `tblstockin`
 --
 ALTER TABLE `tblstockin`
   ADD PRIMARY KEY (`STOCKINID`),
@@ -519,7 +517,7 @@ ALTER TABLE `tblstockin`
   ADD KEY `USERID` (`USERID`);
 
 --
--- Indexes for table `tblsummary`
+-- Chỉ mục cho bảng `tblsummary`
 --
 ALTER TABLE `tblsummary`
   ADD PRIMARY KEY (`SUMMARYID`),
@@ -528,95 +526,95 @@ ALTER TABLE `tblsummary`
   ADD KEY `USERID` (`USERID`);
 
 --
--- Indexes for table `tbluseraccount`
+-- Chỉ mục cho bảng `tbluseraccount`
 --
 ALTER TABLE `tbluseraccount`
   ADD PRIMARY KEY (`USERID`);
 
 --
--- Indexes for table `tblwishlist`
+-- Chỉ mục cho bảng `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `messagein`
+-- AUTO_INCREMENT cho bảng `messagein`
 --
 ALTER TABLE `messagein`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `messagelog`
+-- AUTO_INCREMENT cho bảng `messagelog`
 --
 ALTER TABLE `messagelog`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `messageout`
+-- AUTO_INCREMENT cho bảng `messageout`
 --
 ALTER TABLE `messageout`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tblautonumber`
+-- AUTO_INCREMENT cho bảng `tblautonumber`
 --
 ALTER TABLE `tblautonumber`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tblcategory`
+-- AUTO_INCREMENT cho bảng `tblcategory`
 --
 ALTER TABLE `tblcategory`
   MODIFY `CATEGID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `tblcustomer`
+-- AUTO_INCREMENT cho bảng `tblcustomer`
 --
 ALTER TABLE `tblcustomer`
   MODIFY `CUSTOMERID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tblorder`
+-- AUTO_INCREMENT cho bảng `tblorder`
 --
 ALTER TABLE `tblorder`
   MODIFY `ORDERID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tblpromopro`
+-- AUTO_INCREMENT cho bảng `tblpromopro`
 --
 ALTER TABLE `tblpromopro`
   MODIFY `PROMOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `tblsetting`
+-- AUTO_INCREMENT cho bảng `tblsetting`
 --
 ALTER TABLE `tblsetting`
   MODIFY `SETTINGID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tblstockin`
+-- AUTO_INCREMENT cho bảng `tblstockin`
 --
 ALTER TABLE `tblstockin`
   MODIFY `STOCKINID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tblsummary`
+-- AUTO_INCREMENT cho bảng `tblsummary`
 --
 ALTER TABLE `tblsummary`
   MODIFY `SUMMARYID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbluseraccount`
+-- AUTO_INCREMENT cho bảng `tbluseraccount`
 --
 ALTER TABLE `tbluseraccount`
-  MODIFY `USERID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `USERID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
--- AUTO_INCREMENT for table `tblwishlist`
+-- AUTO_INCREMENT cho bảng `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
